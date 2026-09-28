@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Kadriz builds focused digital products and SaaS solutions for modern businesses.">
+  <meta name="theme-color" content="#0b1020">
+  <title>Kadriz - كادريز | Digital Products & SaaS</title>
+
+  <style>
+    :root {
+      --bg: #08101f;
+      --bg-soft: #0d1730;
+      --card: rgba(255, 255, 255, 0.065);
+      --card-border: rgba(255, 255, 255, 0.10);
+      --text: #f7f9fc;
+      --muted: #aeb8cc;
+      --accent: #5f7cff;
+      --accent-2: #7b5cff;
+      --line: rgba(255, 255, 255, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-height: 100vh;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 10%, rgba(95, 124, 255, 0.20), transparent 34%),
+        radial-gradient(circle at 85% 25%, rgba(123, 92, 255, 0.16), transparent 32%),
+        linear-gradient(160deg, #070d19 0%, #0a1224 52%, #080e1a 100%);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 800;
+      font-size: 22px;
+      letter-spacing: -0.4px;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border-radius: 11px;
+      font-size: 19px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      box-shadow: 0 10px 28px rgba(95, 124, 255, 0.30);
+    }
+
+    .brand-ar {
+      color: var(--muted);
+      font-weight: 600;
+      direction: rtl;
+    }
+
+    .nav-note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    main {
+      padding: 96px 0 80px;
+    }
+
+    .hero {
+      max-width: 850px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 13px;
+      border: 1px solid var(--card-border);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.045);
+      color: #cdd5e6;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 25px;
+    }
+
+    .eyebrow-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #71e7a5;
+      box-shadow: 0 0 12px rgba(113, 231, 165, 0.8);
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 82px);
+      line-height: 0.98;
+      letter-spacing: -3.8px;
+      margin-bottom: 28px;
+      max-width: 900px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(90deg, #ffffff 0%, #aebaff 55%, #b49cff 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .hero p {
+      max-width: 710px;
+      color: var(--muted);
+      font-size: clamp(18px, 2vw, 21px);
+      line-height: 1.75;
+    }
+
+    .arabic-intro {
+      margin-top: 18px;
+      color: #c7cfdf;
+      font-size: 17px;
+      direction: rtl;
+      text-align: left;
+      width: fit-content;
+    }
+
+    .section {
+      margin-top: 90px;
+    }
+
+    .section-label {
+      color: #8f9bb1;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      margin-bottom: 18px;
+    }
+
+    .product-card {
+      position: relative;
+      overflow: hidden;
+      padding: 34px;
+      border-radius: 24px;
+      border: 1px solid var(--card-border);
+      background: linear-gradient(145deg, rgba(255,255,255,0.075), rgba(255,255,255,0.035));
+      box-shadow: 0 24px 80px rgba(0, 0, 0, 0.20);
+    }
+
+    .product-card::after {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      right: -90px;
+      top: -110px;
+      border-radius: 50%;
+      background: rgba(95, 124, 255, 0.14);
+      filter: blur(6px);
+    }
+
+    .product-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 18px;
+    }
+
+    .product-name {
+      font-size: 30px;
+      font-weight: 850;
+      letter-spacing: -1px;
+    }
+
+    .badge {
+      padding: 6px 11px;
+      border-radius: 999px;
+      background: rgba(95, 124, 255, 0.13);
+      border: 1px solid rgba(124, 145, 255, 0.25);
+      color: #c8d0ff;
+      font-size: 12px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.7px;
+      white-space: nowrap;
+    }
+
+    .product-card p {
+      max-width: 720px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .mini-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .mini-card {
+      border: 1px solid var(--card-border);
+      background: rgba(255,255,255,0.035);
+      border-radius: 16px;
+      padding: 18px;
+      color: #dbe1ed;
+      font-size: 14px;
+    }
+
+    .about {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .about-card {
+      padding: 30px;
+      border-radius: 22px;
+      border: 1px solid var(--card-border);
+      background: rgba(255,255,255,0.04);
+    }
+
+    .about-card h2 {
+      font-size: 28px;
+      letter-spacing: -0.8px;
+      margin-bottom: 12px;
+    }
+
+    .about-card p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .arabic-card {
+      direction: rtl;
+      text-align: right;
+    }
+
+    footer {
+      margin-top: 90px;
+      padding: 28px 0 34px;
+      border-top: 1px solid var(--line);
+      color: #7f8ba2;
+      font-size: 13px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 760px) {
+      .container {
+        width: min(100% - 28px, 1120px);
+      }
+
+      header {
+        padding: 20px 0;
+      }
+
+      .nav-note {
+        display: none;
+      }
+
+      main {
+        padding-top: 70px;
+      }
+
+      h1 {
+        letter-spacing: -2.4px;
+      }
+
+      .mini-grid,
+      .about {
+        grid-template-columns: 1fr;
+      }
+
+      .product-top {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .section {
+        margin-top: 68px;
+      }
+
+      .arabic-intro {
+        text-align: right;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <a class="brand" href="/" aria-label="Kadriz home">
+          <span class="brand-mark">K</span>
+          <span>Kadriz</span>
+          <span class="brand-ar">كادريز</span>
+        </a>
+        <span class="nav-note">Digital Products & SaaS</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="eyebrow-dot"></span>
+        Building useful software
+      </div>
+
+      <h1>
+        Digital products built for
+        <span class="gradient-text">real businesses.</span>
+      </h1>
+
+      <p>
+        Kadriz builds focused digital products and SaaS solutions designed to
+        simplify everyday business operations, improve efficiency, and help
+        organizations grow.
+      </p>
+
+      <p class="arabic-intro">
+        كادريز تطوّر حلولاً رقمية ومنصات برمجية تساعد الشركات على تبسيط أعمالها وتطوير عملياتها.
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="section-label">Our Products</div>
+
+      <div class="product-card">
+        <div class="product-top">
+          <div class="product-name">Coacherz</div>
+          <div class="badge">A Kadriz Product</div>
+        </div>
+
+        <p>
+          A sports academy management platform built to help academies manage
+          players, coaches, attendance, payments, branches, and day-to-day
+          operations from one place.
+        </p>
+
+        <div class="mini-grid">
+          <div class="mini-card">Player & registration management</div>
+          <div class="mini-card">Attendance & operations</div>
+          <div class="mini-card">Payments & academy management</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section about">
+      <div class="about-card">
+        <div class="section-label">About Kadriz</div>
+        <h2>Simple software. Practical impact.</h2>
+        <p>
+          We focus on building dependable digital products that solve practical
+          business problems without unnecessary complexity.
+        </p>
+      </div>
+
+      <div class="about-card arabic-card">
+        <div class="section-label">كادريز</div>
+        <h2>حلول رقمية عملية وواضحة.</h2>
+        <p>
+          نركّز على تطوير منتجات رقمية موثوقة تعالج احتياجات حقيقية للشركات
+          والمؤسسات بطريقة بسيطة وفعّالة.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-inner">
+        <span>© 2026 Kadriz - كادريز. All rights reserved.</span>
+        <div style="text-align:right;">
+          <div dir="rtl">صيدا - عبرا - القسم /19/ من العقار /778/ عبرا العقارية</div>
+          <div>Saida, South Governorate 6004, Lebanon</div>
+        </div>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
